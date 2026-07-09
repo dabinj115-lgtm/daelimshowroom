@@ -249,3 +249,68 @@ h1 {
   .divider { margin: 36px 0 26px; }
   .info-list { font-size: 15px; gap: 15px; }
 }
+
+/* iOS/Samsung browser auto-link style reset */
+a[href^="tel"],
+.info-list a,
+.info-list a:visited,
+.info-list a:hover,
+.info-list a:active {
+  color: inherit !important;
+  text-decoration: none !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+
+/* FINAL PATCH: prevent mobile browsers from auto-styling phone/address text */
+.info-list,
+.info-list *,
+.info-list a,
+.info-list a:link,
+.info-list a:visited,
+.info-list a:hover,
+.info-list a:active,
+.info-list [x-apple-data-detectors],
+.info-list [x-apple-data-detectors-type="telephone"] {
+  color: #fff !important;
+  text-decoration: none !important;
+  -webkit-text-decoration-color: transparent !important;
+  text-decoration-color: transparent !important;
+  border-bottom: 0 !important;
+}
+.phone-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  color: #fff !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+.phone-number .hyphen { padding: 0 .02em; }
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(0.02em);
+}
+.info-icon svg {
+  fill: #fff !important;
+  overflow: visible;
+}
+
+@media (max-width: 1023px) {
+  .info-list p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+  }
+  .info-icon {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+  }
+  .info-list { font-size: clamp(14px, 3.9vw, 16px); }
+}
