@@ -2,10 +2,10 @@
 
 :root {
   --white: #fff;
-  --button: rgba(255,255,255,.96);
+  --button: rgba(255,255,255,.965);
   --black: #111;
   --icon: #565656;
-  --line: rgba(255,255,255,.36);
+  --line: rgba(255,255,255,.34);
   --ease: cubic-bezier(.22, 1, .36, 1);
 }
 
@@ -16,6 +16,7 @@ body {
   background: #1d1d1a;
   color: var(--white);
   overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
 }
 
 .page {
@@ -27,7 +28,7 @@ body {
   justify-content: flex-start;
   padding: max(24px, env(safe-area-inset-top)) 0 max(24px, env(safe-area-inset-bottom));
   background-image:
-    linear-gradient(90deg, rgba(0,0,0,.72) 0%, rgba(0,0,0,.58) 26%, rgba(0,0,0,.18) 55%, rgba(0,0,0,.22) 100%),
+    linear-gradient(90deg, rgba(0,0,0,.74) 0%, rgba(0,0,0,.56) 31%, rgba(0,0,0,.13) 62%, rgba(0,0,0,.18) 100%),
     url("assets/pc-bg.jpg");
   background-size: cover;
   background-position: center center;
@@ -44,12 +45,12 @@ body {
   width: 150px;
   height: auto;
   display: block;
-  margin: 0 auto 54px;
+  margin: 0 auto 52px;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(40px, 3.1vw, 58px);
+  font-size: clamp(36px, 2.9vw, 54px); /* PC 기존보다 축소 */
   line-height: 1.08;
   font-weight: 600;
   letter-spacing: -0.05em;
@@ -57,8 +58,8 @@ h1 {
 }
 
 .hero-header p {
-  margin: 22px 0 44px;
-  font-size: clamp(24px, 1.95vw, 34px);
+  margin: 20px 0 42px;
+  font-size: clamp(20px, 1.75vw, 30px); /* PC 기존보다 축소 */
   line-height: 1.2;
   font-weight: 500;
   letter-spacing: -0.04em;
@@ -73,7 +74,7 @@ h1 {
 .link-button {
   position: relative;
   overflow: hidden;
-  height: 68px;
+  height: 66px;
   border-radius: 16px;
   display: grid;
   grid-template-columns: 56px 1fr;
@@ -82,12 +83,13 @@ h1 {
   color: var(--black);
   background: var(--button);
   text-decoration: none;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 600;
   letter-spacing: -0.035em;
   box-shadow: 0 1px 0 rgba(255,255,255,.55) inset, 0 14px 30px rgba(0,0,0,.08);
   transform: translateZ(0);
   transition: color .35s var(--ease), transform .22s var(--ease), box-shadow .35s var(--ease);
+  -webkit-tap-highlight-color: transparent;
 }
 
 .link-button::before {
@@ -118,7 +120,7 @@ h1 {
   flex: 0 0 auto;
   transition: color .35s var(--ease), background .35s var(--ease);
 }
-.btn-icon svg { width: 100%; height: 100%; display:block; fill: currentColor; }
+.btn-icon svg { width: 100%; height: 100%; display:block; fill: currentColor; overflow: visible; }
 .btn-icon.naver, .btn-icon.tmap {
   border-radius: 50%;
   background: var(--icon);
@@ -137,26 +139,52 @@ h1 {
 .divider {
   height: 1px;
   background: var(--line);
-  margin: 44px 0 32px;
+  margin: 42px 0 30px;
 }
 .info-list {
   display: grid;
-  gap: 20px;
+  gap: 19px;
   text-align: center;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: -0.035em;
 }
-.info-list p {
+.info-row {
   margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 13px;
 }
-.info-icon { width: 21px; height: 21px; flex: 0 0 auto; }
-.info-icon svg { width: 100%; height: 100%; fill: #fff; display: block; }
+.info-link {
+  color: #fff !important;
+  text-decoration: none !important;
+  -webkit-text-decoration: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  font: inherit;
+}
+.info-link:visited,
+.info-link:hover,
+.info-link:active,
+.info-link:focus {
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.info-icon {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 20px;
+  color: #fff;
+}
+.info-icon svg { width: 100%; height: 100%; fill: currentColor; display: block; overflow: visible; }
 
 .fade-in { animation: fadeUp .75s var(--ease) both; }
 .fade-1 { animation-delay: .03s; }
@@ -170,12 +198,13 @@ h1 {
   .page {
     min-height: 100svh;
     display: block;
-    padding: max(36px, env(safe-area-inset-top)) 0 max(34px, env(safe-area-inset-bottom));
+    padding: max(34px, env(safe-area-inset-top)) 0 max(28px, env(safe-area-inset-bottom));
     background-image:
-      linear-gradient(180deg, rgba(0,0,0,.25) 0%, rgba(0,0,0,.17) 42%, rgba(0,0,0,.40) 100%),
+      linear-gradient(180deg, rgba(0,0,0,.10) 0%, rgba(0,0,0,.16) 44%, rgba(0,0,0,.35) 100%),
       url("assets/mobile-bg.jpg");
     background-size: cover;
     background-position: center top;
+    background-repeat: no-repeat;
   }
   .content-card {
     width: min(86vw, 390px);
@@ -183,134 +212,70 @@ h1 {
     text-align: center;
   }
   .logo {
-    width: 116px;
-    margin: 0 auto 42px;
+    width: 112px;
+    margin: 0 auto 34px;
   }
   h1 {
-    font-size: clamp(25px, 7.2vw, 31px);
+    font-size: clamp(21px, 5.9vw, 25px); /* MO 6pt 축소 */
     line-height: 1.12;
     font-weight: 600;
     letter-spacing: -0.055em;
   }
   .hero-header p {
-    margin: 15px 0 34px;
-    font-size: clamp(18px, 5vw, 22px);
+    margin: 12px 0 26px;
+    font-size: clamp(14px, 4vw, 17px); /* MO 6pt 축소 */
     line-height: 1.18;
     font-weight: 500;
   }
   .button-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 17px;
+    gap: 13px;
   }
   .link-button {
-    height: 55px;
-    border-radius: 22px;
-    grid-template-columns: 58px 1fr 38px;
-    padding: 0 19px;
-    font-size: clamp(18px, 5vw, 21px);
+    height: 45px; /* MO 버튼 세로 축소 */
+    border-radius: 18px;
+    grid-template-columns: 44px 1fr 28px;
+    padding: 0 15px;
+    font-size: clamp(14px, 3.9vw, 16px); /* MO 버튼 텍스트 6pt 축소 */
     font-weight: 500;
   }
   .btn-label {
     margin-left: 0;
     justify-self: center;
-    transform: translateX(-10px);
+    transform: translateX(-4px);
   }
-  .btn-icon { width: 27px; height: 27px; }
-  .btn-icon.naver, .btn-icon.tmap { font-size: 17px; }
-  .divider { margin: 31px 0 24px; }
+  .btn-icon { width: 24px; height: 24px; }
+  .btn-icon.naver, .btn-icon.tmap { font-size: 15px; }
+  .divider { margin: 23px 0 18px; }
   .info-list {
-    gap: 15px;
-    font-size: clamp(15px, 4.2vw, 17px);
+    gap: 10px;
+    font-size: clamp(12px, 3.5vw, 14px); /* 하단 쇼룸 정보 3pt 축소 */
     font-weight: 500;
     letter-spacing: -0.045em;
   }
-  .info-list p { gap: 10px; }
-  .info-icon { width: 18px; height: 18px; }
+  .info-row, .info-link { gap: 8px; }
+  .info-icon { width: 15px; height: 15px; min-width: 15px; flex-basis: 15px; }
 }
 
 @media (max-width: 380px) {
   .content-card { width: 88vw; }
-  .logo { width: 106px; margin-bottom: 34px; }
-  .hero-header p { margin-bottom: 28px; }
-  .button-grid { gap: 14px; }
-  .link-button { height: 51px; border-radius: 19px; font-size: 17px; }
-  .btn-icon { width: 25px; height: 25px; }
-  .info-list { font-size: 14px; gap: 12px; }
+  .logo { width: 104px; margin-bottom: 28px; }
+  .hero-header p { margin-bottom: 22px; }
+  .button-grid { gap: 11px; }
+  .link-button { height: 42px; border-radius: 16px; font-size: 14px; }
+  .btn-icon { width: 22px; height: 22px; }
+  .info-list { font-size: 12px; gap: 9px; }
+  .info-icon { width: 14px; height: 14px; min-width: 14px; flex-basis: 14px; }
 }
 
 @media (min-width: 1024px) and (max-width: 1350px) {
   .content-card { width: min(520px, 41vw); margin-left: 7vw; }
-  .logo { width: 130px; margin-bottom: 40px; }
-  h1 { font-size: 36px; }
-  .hero-header p { font-size: 24px; margin-bottom: 34px; }
-  .link-button { height: 58px; font-size: 16px; }
+  .logo { width: 130px; margin-bottom: 38px; }
+  h1 { font-size: 32px; }
+  .hero-header p { font-size: 20px; margin-bottom: 32px; }
+  .link-button { height: 56px; font-size: 15px; }
   .button-grid { gap: 16px; }
-  .divider { margin: 36px 0 26px; }
-  .info-list { font-size: 15px; gap: 15px; }
-}
-
-/* iOS/Samsung browser auto-link style reset */
-a[href^="tel"],
-.info-list a,
-.info-list a:visited,
-.info-list a:hover,
-.info-list a:active {
-  color: inherit !important;
-  text-decoration: none !important;
-  -webkit-text-fill-color: currentColor;
-}
-
-
-/* FINAL PATCH: prevent mobile browsers from auto-styling phone/address text */
-.info-list,
-.info-list *,
-.info-list a,
-.info-list a:link,
-.info-list a:visited,
-.info-list a:hover,
-.info-list a:active,
-.info-list [x-apple-data-detectors],
-.info-list [x-apple-data-detectors-type="telephone"] {
-  color: #fff !important;
-  text-decoration: none !important;
-  -webkit-text-decoration-color: transparent !important;
-  text-decoration-color: transparent !important;
-  border-bottom: 0 !important;
-}
-.phone-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-  color: #fff !important;
-  text-decoration: none !important;
-  white-space: nowrap;
-}
-.phone-number .hyphen { padding: 0 .02em; }
-.info-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transform: translateY(0.02em);
-}
-.info-icon svg {
-  fill: #fff !important;
-  overflow: visible;
-}
-
-@media (max-width: 1023px) {
-  .info-list p {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 9px;
-    width: 100%;
-  }
-  .info-icon {
-    width: 16px;
-    height: 16px;
-    flex: 0 0 16px;
-  }
-  .info-list { font-size: clamp(14px, 3.9vw, 16px); }
+  .divider { margin: 34px 0 24px; }
+  .info-list { font-size: 14px; gap: 14px; }
 }
