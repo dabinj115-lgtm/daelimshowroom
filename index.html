@@ -1,47 +1,65 @@
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>대림바스 논현직영쇼룸 오시는 길</title>
-  <meta name="description" content="대림바스 논현직영쇼룸 오시는 길 안내 페이지" />
-  <link rel="stylesheet" href="./style.css" />
+  <meta name="description" content="대림바스 논현직영쇼룸 오시는 길 안내 페이지입니다." />
+  <meta property="og:title" content="대림바스 논현직영쇼룸 오시는 길" />
+  <meta property="og:description" content="네이버 플레이스, 네이버 지도, 카카오맵, 티맵으로 바로 이동하세요." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/background.jpg" />
+  <meta name="theme-color" content="#24231f" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <main class="page">
-    <section class="showroom-card" aria-label="대림바스 논현직영쇼룸 오시는 길">
-      <div class="visual" aria-hidden="true"></div>
-      <div class="overlay"></div>
+  <main class="page" aria-label="대림바스 논현직영쇼룸 오시는 길">
+    <div class="bg" aria-hidden="true"></div>
+    <section class="content">
+      <header class="hero-header reveal delay-1">
+        <img class="logo" src="images/logo.png" alt="DAELIM" />
+        <h1>대림바스 논현직영쇼룸</h1>
+        <p>오시는 길</p>
+      </header>
 
-      <div class="content">
-        <header class="header">
-          <img src="./images/logo.png" alt="DAELIM" class="logo" />
-          <h1>대림바스 논현직영쇼룸</h1>
-          <p>오시는 길</p>
-        </header>
+      <nav class="button-grid reveal delay-2" aria-label="지도 바로가기">
+        <a class="map-button" href="https://naver.me/xIeX41jT" target="_blank" rel="noopener noreferrer" data-label="네이버 플레이스">
+          <span class="button-icon">N</span>
+          <span class="button-text">네이버 플레이스</span>
+        </a>
+        <a class="map-button" href="https://naver.me/Gfr5wNoV" target="_blank" rel="noopener noreferrer" data-label="네이버 지도">
+          <span class="button-icon pin">N</span>
+          <span class="button-text">네이버 지도</span>
+        </a>
+        <a class="map-button" href="https://place.map.kakao.com/966576267" target="_blank" rel="noopener noreferrer" data-label="카카오맵">
+          <span class="button-icon marker">K</span>
+          <span class="button-text">카카오맵</span>
+        </a>
+        <a class="map-button" href="https://tmap.life/bef06008" target="_blank" rel="noopener noreferrer" data-label="티맵">
+          <span class="button-icon">T</span>
+          <span class="button-text">티맵</span>
+        </a>
+      </nav>
 
-        <nav class="link-grid" aria-label="지도 바로가기">
-          <a class="map-button" href="https://naver.me/xIeX41jT" target="_blank" rel="noopener noreferrer">
-            <span>네이버 플레이스</span>
-          </a>
-          <a class="map-button" href="https://naver.me/Gfr5wNoV" target="_blank" rel="noopener noreferrer">
-            <span>네이버 지도</span>
-          </a>
-          <a class="map-button" href="https://place.map.kakao.com/966576267" target="_blank" rel="noopener noreferrer">
-            <span>카카오맵</span>
-          </a>
-          <a class="map-button" href="https://tmap.life/bef06008" target="_blank" rel="noopener noreferrer">
-            <span>티맵</span>
-          </a>
-        </nav>
-
-        <section class="info" aria-label="쇼룸 정보">
-          <p><span class="icon">●</span>서울 강남구 학동로 105 JAY빌딩 1층</p>
-          <p><span class="icon">●</span><a href="tel:050713440162">0507-1344-0162</a></p>
-          <p><span class="icon">●</span>Mon – Sun / 10:00am – 20:00pm</p>
-        </section>
+      <div class="info reveal delay-3" aria-label="쇼룸 정보">
+        <div class="divider" aria-hidden="true"></div>
+        <a class="info-item" href="https://naver.me/Gfr5wNoV" target="_blank" rel="noopener noreferrer">
+          <span class="info-icon" aria-hidden="true">●</span>
+          <span>서울 강남구 학동로 105 JAY빌딩 1층</span>
+        </a>
+        <a class="info-item" href="tel:050713440162">
+          <span class="info-icon" aria-hidden="true">●</span>
+          <span>0507-1344-0162</span>
+        </a>
+        <div class="info-item">
+          <span class="info-icon" aria-hidden="true">●</span>
+          <span>Mon – Sun / 10:00am – 20:00pm</span>
+        </div>
       </div>
     </section>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
