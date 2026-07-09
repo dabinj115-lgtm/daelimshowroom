@@ -3,74 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#2f302b" />
   <title>대림바스 논현직영쇼룸 오시는 길</title>
   <meta name="description" content="대림바스 논현직영쇼룸 오시는 길 안내 페이지입니다." />
   <meta property="og:title" content="대림바스 논현직영쇼룸 오시는 길" />
-  <meta property="og:description" content="네이버 플레이스, 네이버 지도, 카카오맵, 티맵으로 바로 이동하세요." />
+  <meta property="og:description" content="네이버 플레이스, 네이버 지도, 카카오맵, 티맵 바로가기" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="images/background.jpg" />
-  <link rel="icon" type="image/png" href="images/favicon.png" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-  <main class="showroom-page" aria-label="대림바스 논현직영쇼룸 오시는 길">
+  <main class="showroom" aria-label="대림바스 논현직영쇼룸 안내 페이지">
     <div class="bg" aria-hidden="true"></div>
     <div class="shade" aria-hidden="true"></div>
 
-    <section class="layout">
-      <div class="content" data-animate>
-        <header class="hero-head">
-          <img class="logo" src="images/logo.png" alt="DAELIM" />
-          <p class="eyebrow">DAELIM BATH SHOWROOM</p>
-          <h1>대림바스 논현직영쇼룸</h1>
-          <p class="subtitle">오시는 길</p>
-        </header>
+    <section class="content">
+      <header class="header fade-item">
+        <img class="logo" src="./images/logo.png" alt="DAELIM" />
+        <h1>대림바스 논현직영쇼룸</h1>
+        <p>오시는 길</p>
+      </header>
 
-        <nav class="button-grid" aria-label="지도 바로가기">
-          <a class="map-button" href="https://naver.me/xIeX41jT" target="_blank" rel="noopener noreferrer" aria-label="네이버 플레이스 바로가기">
-            <span class="button-icon naver">N</span>
-            <span class="button-text">네이버 플레이스</span>
-            <span class="arrow" aria-hidden="true"></span>
-          </a>
-          <a class="map-button" href="https://naver.me/Gfr5wNoV" target="_blank" rel="noopener noreferrer" aria-label="네이버 지도 바로가기">
-            <span class="button-icon naver-map">N</span>
-            <span class="button-text">네이버 지도</span>
-            <span class="arrow" aria-hidden="true"></span>
-          </a>
-          <a class="map-button" href="https://place.map.kakao.com/966576267" target="_blank" rel="noopener noreferrer" aria-label="카카오맵 바로가기">
-            <span class="button-icon pin" aria-hidden="true"></span>
-            <span class="button-text">카카오맵</span>
-            <span class="arrow" aria-hidden="true"></span>
-          </a>
-          <a class="map-button" href="https://tmap.life/bef06008" target="_blank" rel="noopener noreferrer" aria-label="티맵 바로가기">
-            <span class="button-icon tmap">T</span>
-            <span class="button-text">티맵</span>
-            <span class="arrow" aria-hidden="true"></span>
-          </a>
-        </nav>
+      <nav class="buttons fade-item" aria-label="지도 바로가기">
+        <a class="map-button" href="https://naver.me/xIeX41jT" target="_blank" rel="noopener noreferrer" data-label="네이버 플레이스">
+          <span class="button-icon naver" aria-hidden="true">N</span>
+          <span>네이버 플레이스</span>
+        </a>
+        <a class="map-button" href="https://naver.me/Gfr5wNoV" target="_blank" rel="noopener noreferrer" data-label="네이버 지도">
+          <span class="button-icon naver-map" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img"><path d="M12 2.5c-3.9 0-7 3.05-7 6.82 0 5.18 6.1 11.61 6.36 11.88a.9.9 0 0 0 1.28 0C12.9 20.93 19 14.5 19 9.32c0-3.77-3.1-6.82-7-6.82Zm0 9.35a2.55 2.55 0 1 1 0-5.1 2.55 2.55 0 0 1 0 5.1Z"/><text x="12" y="10.25" text-anchor="middle" font-size="5.4" font-weight="800" fill="white" font-family="Arial, sans-serif">N</text></svg>
+          </span>
+          <span>네이버 지도</span>
+        </a>
+        <a class="map-button" href="https://place.map.kakao.com/966576267" target="_blank" rel="noopener noreferrer" data-label="카카오맵">
+          <span class="button-icon pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img"><path d="M12 2.5c-4 0-7.25 3.12-7.25 6.98 0 5.45 6.52 11.8 6.8 12.06a.64.64 0 0 0 .9 0c.28-.27 6.8-6.61 6.8-12.06 0-3.86-3.25-6.98-7.25-6.98Zm0 9.75a2.78 2.78 0 1 1 0-5.56 2.78 2.78 0 0 1 0 5.56Z"/></svg>
+          </span>
+          <span>카카오맵</span>
+        </a>
+        <a class="map-button" href="https://tmap.life/bef06008" target="_blank" rel="noopener noreferrer" data-label="티맵">
+          <span class="button-icon tmap" aria-hidden="true">T</span>
+          <span>티맵</span>
+        </a>
+      </nav>
 
-        <div class="info" aria-label="쇼룸 정보">
-          <div class="info-line">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6c-3.2 0-5.8 2.5-5.8 5.7 0 4.3 5.8 12.1 5.8 12.1s5.8-7.8 5.8-12.1c0-3.2-2.6-5.7-5.8-5.7Zm0 8.1a2.4 2.4 0 1 1 0-4.8 2.4 2.4 0 0 1 0 4.8Z"/></svg>
-            <span>서울 강남구 학동로 105 JAY빌딩 1층</span>
-          </div>
-          <div class="info-line">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.5 3 3.8 5.4 6.7 6.8l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.6.6 4 .6.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C10.4 21.8 2.2 13.6 2.2 3.3 2.2 2.6 2.8 2 3.5 2H7c.7 0 1.3.6 1.3 1.3 0 1.4.2 2.8.6 4 .1.4 0 .8-.3 1.2l-2 2.3Z"/></svg>
-            <span>0507-1344-0162</span>
-          </div>
-          <div class="info-line">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2a9.8 9.8 0 1 0 0 19.6 9.8 9.8 0 0 0 0-19.6Zm.9 10.1 3.8 2.2-.9 1.5-4.7-2.8V6.4h1.8v5.9Z"/></svg>
-            <span>Mon – Sun / 10:00am – 20:00pm</span>
-          </div>
-        </div>
-      </div>
-
-      <aside class="visual" aria-hidden="true">
-        <div class="arch-window"></div>
-      </aside>
+      <section class="info fade-item" aria-label="쇼룸 정보">
+        <div class="line"></div>
+        <p>
+          <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.75c-3.86 0-7 3.03-7 6.76 0 5.12 6.07 11.45 6.33 11.72a.95.95 0 0 0 1.34 0C12.93 20.96 19 14.63 19 9.51c0-3.73-3.14-6.76-7-6.76Zm0 9.18a2.42 2.42 0 1 1 0-4.84 2.42 2.42 0 0 1 0 4.84Z"/></svg></span>
+          <span>서울 강남구 학동로 105 JAY빌딩 1층</span>
+        </p>
+        <p>
+          <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1.02 1.02 0 0 1 1.03-.25c1.13.37 2.35.57 3.56.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1C10.61 21 3 13.39 3 4c0-.55.45-1 1-1h3.55c.55 0 1 .45 1 1 0 1.22.19 2.42.56 3.56.11.36.03.75-.25 1.03l-2.24 2.2Z"/></svg></span>
+          <span>0507-1344-0162</span>
+        </p>
+        <p>
+          <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 .01 0H12Zm1 10.17 3.7 2.2-.95 1.56-4.75-2.83V6.75h2v5.42Z"/></svg></span>
+          <span>Mon – Sun / 10:00am – 20:00pm</span>
+        </p>
+      </section>
     </section>
   </main>
-
-  <script src="script.js"></script>
+  <script src="./script.js"></script>
 </body>
 </html>
