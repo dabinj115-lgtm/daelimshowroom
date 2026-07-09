@@ -7,55 +7,58 @@
   <meta name="description" content="대림바스 논현직영쇼룸 오시는 길 안내 페이지" />
   <meta property="og:title" content="대림바스 논현직영쇼룸 오시는 길" />
   <meta property="og:description" content="네이버 플레이스, 네이버 지도, 카카오맵, 티맵 바로가기" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <link rel="stylesheet" href="style.css?v=20260709-final-3" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="style.css?v=20260710-final-rebuilt" />
 </head>
 <body>
   <main class="page" aria-label="대림바스 논현직영쇼룸 오시는 길">
-    <picture class="bg" aria-hidden="true">
-      <source media="(min-width: 900px)" srcset="assets/bg-pc.jpg" />
-      <img src="assets/bg-mobile.jpg" alt="" />
-    </picture>
-    <div class="shade" aria-hidden="true"></div>
-
-    <section class="panel">
-      <img class="logo" src="assets/logo.png" alt="DAELIM" />
-
-      <header class="heading">
+    <section class="content-card">
+      <header class="hero-header fade-in fade-1">
+        <img class="logo" src="assets/logo.png" alt="DAELIM" />
         <h1>대림바스 논현직영쇼룸</h1>
         <p>오시는 길</p>
       </header>
 
-      <nav class="links" aria-label="지도 바로가기">
-        <a class="map-button" href="https://naver.me/xIeX41jT" target="_blank" rel="noopener noreferrer">
-          <span class="icon icon-letter" aria-hidden="true">N</span>
-          <span class="label">네이버 플레이스</span>
+      <nav class="button-grid fade-in fade-2" aria-label="지도 바로가기">
+        <a class="link-button" href="https://naver.me/xIeX41jT" target="_blank" rel="noopener noreferrer">
+          <span class="btn-icon naver" aria-hidden="true">N</span>
+          <span class="btn-label">네이버 플레이스</span>
         </a>
-        <a class="map-button" href="https://naver.me/Gfr5wNoV" target="_blank" rel="noopener noreferrer">
-          <span class="icon icon-pin-n" aria-hidden="true"><svg viewBox="0 0 24 32" focusable="false"><path d="M12 0C5.8 0 1 4.8 1 10.9c0 7.9 11 20.1 11 20.1s11-12.2 11-20.1C23 4.8 18.2 0 12 0Z" fill="currentColor"/><circle cx="12" cy="10.8" r="5.2" fill="white"/><text x="12" y="14" text-anchor="middle" font-size="7.5" font-weight="900" fill="currentColor">N</text></svg></span>
-          <span class="label">네이버 지도</span>
+        <a class="link-button" href="https://naver.me/Gfr5wNoV" target="_blank" rel="noopener noreferrer">
+          <span class="btn-icon pin naver-pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img"><path d="M12 2.6c-4 0-7.2 3.1-7.2 7 0 5.2 7.2 11.8 7.2 11.8s7.2-6.6 7.2-11.8c0-3.9-3.2-7-7.2-7z"/><circle cx="12" cy="9.7" r="2.5" fill="white"/><text x="12" y="10.7" text-anchor="middle" font-size="3.4" font-weight="800" fill="#555">N</text></svg>
+          </span>
+          <span class="btn-label">네이버 지도</span>
         </a>
-        <a class="map-button" href="https://place.map.kakao.com/966576267" target="_blank" rel="noopener noreferrer">
-          <span class="icon icon-pin" aria-hidden="true"><svg viewBox="0 0 24 32" focusable="false"><path d="M12 0C5.8 0 1 4.8 1 10.9c0 7.9 11 20.1 11 20.1s11-12.2 11-20.1C23 4.8 18.2 0 12 0Z" fill="currentColor"/><circle cx="12" cy="10.8" r="4.2" fill="white"/></svg></span>
-          <span class="label">카카오맵</span>
+        <a class="link-button" href="https://place.map.kakao.com/966576267" target="_blank" rel="noopener noreferrer">
+          <span class="btn-icon pin" aria-hidden="true">
+            <svg viewBox="0 0 24 24" role="img"><path d="M12 2.6c-4 0-7.2 3.1-7.2 7 0 5.2 7.2 11.8 7.2 11.8s7.2-6.6 7.2-11.8c0-3.9-3.2-7-7.2-7z"/><circle cx="12" cy="9.6" r="2.6" fill="white"/></svg>
+          </span>
+          <span class="btn-label">카카오맵</span>
         </a>
-        <a class="map-button" href="https://tmap.life/bef06008" target="_blank" rel="noopener noreferrer">
-          <span class="icon icon-letter" aria-hidden="true">T</span>
-          <span class="label">티맵</span>
+        <a class="link-button" href="https://tmap.life/bef06008" target="_blank" rel="noopener noreferrer">
+          <span class="btn-icon tmap" aria-hidden="true">T</span>
+          <span class="btn-label">티맵</span>
         </a>
       </nav>
 
-      <div class="divider" aria-hidden="true"></div>
+      <div class="divider fade-in fade-3" aria-hidden="true"></div>
 
-      <address class="info">
-        <p><span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 32"><path d="M12 0C5.8 0 1 4.8 1 10.9c0 7.9 11 20.1 11 20.1s11-12.2 11-20.1C23 4.8 18.2 0 12 0Z" fill="currentColor"/><circle cx="12" cy="10.8" r="4" fill="#444"/></svg></span><span>서울 강남구 학동로 105 JAY빌딩 1층</span></p>
-        <p><span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.2 2.4c.6-.3 1.3 0 1.6.6l1.5 3.6c.2.5.1 1.1-.3 1.5L8.6 9.5c1.4 2.6 3.3 4.5 5.9 5.9l1.4-1.4c.4-.4 1-.5 1.5-.3l3.6 1.5c.6.3.9 1 .6 1.6l-1.2 3c-.2.5-.7.8-1.3.8C10 20.6 3.4 14 3.4 4.9c0-.6.3-1.1.8-1.3l3-1.2Z" fill="currentColor"/></svg></span><a href="tel:050713440162">0507-1344-0162</a></p>
-        <p><span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="currentColor"/><path d="M12 6.4v6l4.1 2.4" fill="none" stroke="#444" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Mon – Sun / 10:00am – 20:00pm</span></p>
-      </address>
+      <section class="info-list fade-in fade-4" aria-label="쇼룸 정보">
+        <p>
+          <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.5c-4 0-7.2 3.1-7.2 7 0 5.2 7.2 11.9 7.2 11.9s7.2-6.7 7.2-11.9c0-3.9-3.2-7-7.2-7z"/><circle cx="12" cy="9.6" r="2.4" fill="#fff"/></svg></span>
+          <span>서울 강남구 학동로 105 JAY빌딩 1층</span>
+        </p>
+        <p>
+          <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.8 3.3 4.2 5.9c-.8.8-.9 2-.4 3 1.1 2.2 2.7 4.4 4.7 6.4 2 2 4.2 3.6 6.4 4.7 1 .5 2.2.4 3-.4l2.6-2.6c.5-.5.5-1.3 0-1.8l-3.1-3.1c-.4-.4-1.1-.5-1.7-.2l-2 1.1c-1.5-.8-2.8-1.8-4-3s-2.2-2.5-3-4l1.1-2c.3-.6.2-1.2-.2-1.7L8.6 3.3c-.5-.5-1.3-.5-1.8 0z"/></svg></span>
+          <span>0507-1344-0162</span>
+        </p>
+        <p>
+          <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2.8a9.2 9.2 0 1 0 0 18.4 9.2 9.2 0 0 0 0-18.4zm1 4.6v4.3l3.2 2.1-.9 1.5-4.1-2.7V7.4H13z"/></svg></span>
+          <span>Mon – Sun / 10:00am – 20:00pm</span>
+        </p>
+      </section>
     </section>
   </main>
-  <script src="script.js?v=20260709-final-3"></script>
 </body>
 </html>

@@ -1,10 +1,1 @@
-(() => {
-  const buttons = document.querySelectorAll('.map-button');
-  buttons.forEach((button) => {
-    button.addEventListener('pointerdown', () => button.classList.add('is-touching'));
-    const clear = () => button.classList.remove('is-touching');
-    button.addEventListener('pointerup', clear);
-    button.addEventListener('pointercancel', clear);
-    button.addEventListener('pointerleave', clear);
-  });
-})();
+// 현재 페이지는 정적 링크 페이지입니다. GitHub Pages에서 별도 빌드 없이 동작합니다.
