@@ -1,1 +1,27 @@
-// GitHub Pages 정적 페이지용. 현재 별도 스크립트 없이 CSS 애니메이션 중심으로 동작합니다.
+(() => {
+  const clearButtonState = () => {
+    const active = document.activeElement;
+    if (active instanceof HTMLElement) active.blur();
+
+    document.querySelectorAll(".map-button").forEach((button) => {
+      button.classList.remove("is-active");
+    });
+  };
+
+  window.addEventListener("pageshow", clearButtonState);
+  window.addEventListener("pagehide", clearButtonState);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") clearButtonState();
+  });
+
+  document.querySelectorAll(".map-button").forEach((button) => {
+    button.addEventListener("pointerup", () => {
+      window.setTimeout(() => button.blur(), 0);
+    });
+
+    button.addEventListener("click", () => {
+      window.setTimeout(() => button.blur(), 0);
+    });
+  });
+})();

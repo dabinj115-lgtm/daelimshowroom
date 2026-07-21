@@ -127,15 +127,23 @@ h1 {
   transition: transform .46s cubic-bezier(.2,.75,.2,1);
 }
 
-.map-button:hover,
 .map-button:focus-visible {
   color: #fff;
   outline: none;
 }
 
-.map-button:hover::before,
 .map-button:focus-visible::before {
   transform: translate(-50%, -50%) scale(34);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .map-button:hover {
+    color: #fff;
+  }
+
+  .map-button:hover::before {
+    transform: translate(-50%, -50%) scale(34);
+  }
 }
 
 .map-button:active {
@@ -192,6 +200,27 @@ h1 {
   text-decoration: none;
 }
 
+@media (hover: none), (pointer: coarse) {
+  .map-button:focus,
+  .map-button:focus-visible {
+    color: var(--black);
+    outline: none;
+  }
+
+  .map-button:focus::before,
+  .map-button:focus-visible::before {
+    transform: translate(-50%, -50%) scale(0);
+  }
+
+  .map-button:active {
+    color: #fff;
+  }
+
+  .map-button:active::before {
+    transform: translate(-50%, -50%) scale(34);
+  }
+}
+
 @media (max-width: 767px) {
   :root {
     --button-height: 49px;
@@ -236,7 +265,7 @@ h1 {
     min-height: 0;
     margin: 0;
     padding:
-      max(48px, calc(env(safe-area-inset-top) + 30px))
+      max(38px, calc(env(safe-area-inset-top) + 20px))
       7vw
       max(22px, calc(env(safe-area-inset-bottom) + 12px));
     display: flex;
@@ -251,7 +280,7 @@ h1 {
 
   .brand-logo {
     width: 148px;
-    margin: 0 auto 30px;
+    margin: 0 auto 18px;
   }
 
   h1 {
@@ -261,16 +290,16 @@ h1 {
   }
 
   .subtitle {
-    margin-top: 12px;
+    margin-top: 6px;
     font-size: clamp(18px, 4.7vw, 22px);
     line-height: 1.18;
   }
 
   .map-links {
     flex: 0 0 auto;
-    margin-top: 31px;
+    margin-top: 21px;
     grid-template-columns: 1fr;
-    gap: 13px;
+    gap: 8px;
   }
 
   .map-button {
