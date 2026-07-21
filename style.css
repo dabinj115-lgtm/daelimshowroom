@@ -201,9 +201,14 @@ h1 {
 }
 
 @media (hover: none), (pointer: coarse) {
+  .map-button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
   .map-button:focus,
   .map-button:focus-visible {
     color: var(--black);
+    background: #fff;
     outline: none;
   }
 
@@ -212,12 +217,15 @@ h1 {
     transform: translate(-50%, -50%) scale(0);
   }
 
-  .map-button:active {
+  .map-button:active,
+  .map-button.is-touching {
     color: #fff;
+    background: #111;
   }
 
-  .map-button:active::before {
-    transform: translate(-50%, -50%) scale(34);
+  .map-button:active::before,
+  .map-button.is-touching::before {
+    transform: translate(-50%, -50%) scale(0);
   }
 }
 
@@ -265,7 +273,7 @@ h1 {
     min-height: 0;
     margin: 0;
     padding:
-      max(38px, calc(env(safe-area-inset-top) + 20px))
+      max(43px, calc(env(safe-area-inset-top) + 25px))
       7vw
       max(22px, calc(env(safe-area-inset-bottom) + 12px));
     display: flex;
@@ -280,7 +288,7 @@ h1 {
 
   .brand-logo {
     width: 148px;
-    margin: 0 auto 18px;
+    margin: 0 auto 23px;
   }
 
   h1 {
@@ -290,16 +298,16 @@ h1 {
   }
 
   .subtitle {
-    margin-top: 6px;
+    margin-top: 11px;
     font-size: clamp(18px, 4.7vw, 22px);
     line-height: 1.18;
   }
 
   .map-links {
     flex: 0 0 auto;
-    margin-top: 21px;
+    margin-top: 26px;
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 13px;
   }
 
   .map-button {
