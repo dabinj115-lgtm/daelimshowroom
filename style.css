@@ -63,7 +63,7 @@ img {
 }
 
 .brand-logo {
-  width: clamp(145px, 10vw, 192px);
+  width: clamp(131px, 9vw, 173px);
   height: auto;
   margin: 0 auto clamp(32px, 4.5vh, 52px);
 }
@@ -194,7 +194,7 @@ h1 {
 
 @media (max-width: 767px) {
   :root {
-    --button-height: 54px;
+    --button-height: 49px;
     --button-radius: 17px;
   }
 
@@ -234,25 +234,25 @@ h1 {
   }
 
   h1 {
-    font-size: clamp(27px, 7.2vw, 34px);
+    font-size: clamp(24px, 6.5vw, 31px);
     line-height: 1.18;
   }
 
   .subtitle {
     margin-top: 12px;
-    font-size: clamp(20px, 5.2vw, 24px);
+    font-size: clamp(18px, 4.7vw, 22px);
   }
 
   .map-links {
-    margin-top: 34px;
+    margin-top: 31px;
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 13px;
   }
 
   .map-button {
     min-height: var(--button-height);
     border-radius: var(--button-radius);
-    font-size: clamp(17px, 4.5vw, 20px);
+    font-size: clamp(15px, 4.05vw, 18px);
     font-weight: 500;
   }
 
@@ -268,12 +268,13 @@ h1 {
 
   .info-row {
     gap: 11px;
-    font-size: clamp(14px, 3.75vw, 17px);
+    font-size: clamp(13px, 3.4vw, 15px);
+    line-height: 1.18;
     white-space: nowrap;
   }
 
   .info-row + .info-row {
-    margin-top: 12px;
+    margin-top: 8px;
   }
 
   .info-row img {
@@ -295,25 +296,25 @@ h1 {
   }
 
   h1 {
-    font-size: 25px;
+    font-size: 23px;
   }
 
   .subtitle {
-    font-size: 19px;
+    font-size: 17px;
   }
 
   .map-links {
-    margin-top: 28px;
-    gap: 11px;
+    margin-top: 26px;
+    gap: 10px;
   }
 
   .map-button {
-    min-height: 50px;
-    font-size: 16px;
+    min-height: 46px;
+    font-size: 14px;
   }
 
   .info-row {
-    font-size: 13px;
+    font-size: 12px;
   }
 }
 
