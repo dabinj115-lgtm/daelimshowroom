@@ -435,6 +435,48 @@ h1 {
   }
 }
 
+
+@media (max-width: 767px) {
+  .content {
+    padding-top: max(48px, calc(env(safe-area-inset-top) + 30px));
+  }
+
+  .brand-logo {
+    margin-bottom: 28px;
+  }
+
+  .subtitle {
+    margin-top: 16px;
+  }
+
+  .map-links {
+    margin-top: 31px;
+    gap: 13px;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .map-button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .map-button:focus,
+  .map-button:focus-visible {
+    outline: none;
+  }
+
+  .map-button.is-touching,
+  .map-button.is-navigating {
+    color: #fff;
+  }
+
+  .map-button.is-touching::before,
+  .map-button.is-navigating::before {
+    transform: translate(-50%, -50%) scale(42);
+    transition-duration: 420ms;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .map-button,
   .map-button::before {
