@@ -1,52 +1,89 @@
 (() => {
   const buttons = [...document.querySelectorAll(".map-button")];
+  let navigationTimer = null;
 
-  const clearButtonState = () => {
+  const resetButtons = () => {
+    if (navigationTimer) {
+      window.clearTimeout(navigationTimer);
+      navigationTimer = null;
+    }
+
     const active = document.activeElement;
     if (active instanceof HTMLElement) active.blur();
 
     buttons.forEach((button) => {
-      button.classList.remove("is-touching", "is-navigating");
+      button.classList.remove(
+        "is-touching",
+        "is-navigating",
+        "is-pressing"
+      );
+      button.style.removeProperty("--touch-x");
+      button.style.removeProperty("--touch-y");
     });
   };
 
+  const setTouchOrigin = (button, event) => {
+    const rect = button.getBoundingClientRect();
+    const point = event.touches?.[0] ?? event;
+    const x = Math.max(0, Math.min(rect.width, point.clientX - rect.left));
+    const y = Math.max(0, Math.min(rect.height, point.clientY - rect.top));
+
+    button.style.setProperty("--touch-x", `${x}px`);
+    button.style.setProperty("--touch-y", `${y}px`);
+  };
+
   buttons.forEach((button) => {
-    const startTouch = () => {
-      button.classList.remove("is-navigating");
-      button.classList.add("is-touching");
+    button.addEventListener("pointerdown", (event) => {
+      if (event.pointerType === "mouse") return;
+      resetButtons();
+      setTouchOrigin(button, event);
+      button.classList.add("is-pressing");
+    }, { passive: true });
+
+    button.addEventListener("touchstart", (event) => {
+      resetButtons();
+      setTouchOrigin(button, event);
+      button.classList.add("is-pressing");
+    }, { passive: true });
+
+    const cancelPress = () => {
+      button.classList.remove("is-pressing");
+      button.blur();
     };
 
-    const cancelTouch = () => {
-      if (!button.classList.contains("is-navigating")) {
-        button.classList.remove("is-touching");
-      }
-    };
-
-    button.addEventListener("pointerdown", startTouch, { passive: true });
-    button.addEventListener("pointercancel", cancelTouch, { passive: true });
-    button.addEventListener("pointerleave", cancelTouch, { passive: true });
-
-    button.addEventListener("touchstart", startTouch, { passive: true });
-    button.addEventListener("touchcancel", cancelTouch, { passive: true });
+    button.addEventListener("pointercancel", cancelPress, { passive: true });
+    button.addEventListener("touchcancel", cancelPress, { passive: true });
 
     button.addEventListener("click", (event) => {
-      // 클릭 후 외부 페이지로 전환되는 동안 그라데이션 완료 상태를 유지.
-      button.classList.remove("is-touching");
-      button.classList.add("is-navigating");
-
-      // 브라우저가 페인트할 시간을 확보한 뒤 이동.
       const href = button.getAttribute("href");
       const target = button.getAttribute("target");
 
-      if (href && (!target || target === "_self")) {
-        event.preventDefault();
-        window.setTimeout(() => {
-          window.location.href = href;
-        }, 220);
+      if (!href || (target && target !== "_self")) return;
+
+      event.preventDefault();
+
+      // 클릭 순간 효과가 안 보이는 문제 방지
+      if (!button.classList.contains("is-pressing")) {
+        const rect = button.getBoundingClientRect();
+        button.style.setProperty("--touch-x", `${rect.width / 2}px`);
+        button.style.setProperty("--touch-y", `${rect.height / 2}px`);
+        button.classList.add("is-pressing");
       }
+
+      navigationTimer = window.setTimeout(() => {
+        window.location.assign(href);
+      }, 240);
     });
   });
 
-  // 페이지로 다시 돌아온 순간에만 선택 효과를 제거.
-  window.addEventListener("pageshow", clearButtonState);
+  // 앱/외부 페이지에서 돌아왔을 때 bfcache에 남은 선택 상태 제거
+  window.addEventListener("pageshow", resetButtons);
+  window.addEventListener("pagehide", resetButtons);
+  window.addEventListener("popstate", resetButtons);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.visibilityState === "visible") {
+      resetButtons();
+    }
+  });
 })();

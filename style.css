@@ -200,34 +200,6 @@ h1 {
   text-decoration: none;
 }
 
-@media (hover: none), (pointer: coarse) {
-  .map-button {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .map-button:focus,
-  .map-button:focus-visible {
-    color: var(--black);
-    background: #fff;
-    outline: none;
-  }
-
-  .map-button:focus::before,
-  .map-button:focus-visible::before {
-    transform: translate(-50%, -50%) scale(0);
-  }
-
-  .map-button:active,
-  .map-button.is-touching {
-    color: #fff;
-    background: #111;
-  }
-
-  .map-button:active::before,
-  .map-button.is-touching::before {
-    transform: translate(-50%, -50%) scale(0);
-  }
-}
 
 @media (max-width: 767px) {
   :root {
@@ -455,25 +427,65 @@ h1 {
   }
 }
 
+
+
+@media (max-width: 767px) {
+  .brand-logo {
+    margin-bottom: 25px;
+  }
+
+  .map-links {
+    margin-top: 28px;
+  }
+}
+
 @media (hover: none), (pointer: coarse) {
   .map-button {
+    --touch-x: 50%;
+    --touch-y: 50%;
+    touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    transition:
+      transform 160ms ease,
+      color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  /* 기존 중앙 원 대신, 실제 터치 지점에서 퍼지는 그라데이션 */
+  .map-button::before {
+    left: var(--touch-x);
+    top: var(--touch-y);
+    width: 22px;
+    height: 22px;
+    background:
+      radial-gradient(
+        circle,
+        #151515 0%,
+        #111 62%,
+        #050505 100%
+      );
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 260ms cubic-bezier(.22,.8,.26,1);
   }
 
   .map-button:focus,
   .map-button:focus-visible {
+    color: var(--black);
     outline: none;
   }
 
-  .map-button.is-touching,
-  .map-button.is-navigating {
-    color: #fff;
+  .map-button:focus::before,
+  .map-button:focus-visible::before {
+    transform: translate(-50%, -50%) scale(0);
   }
 
-  .map-button.is-touching::before,
-  .map-button.is-navigating::before {
-    transform: translate(-50%, -50%) scale(42);
-    transition-duration: 420ms;
+  .map-button.is-pressing {
+    color: #fff;
+    transform: scale(.985);
+  }
+
+  .map-button.is-pressing::before {
+    transform: translate(-50%, -50%) scale(48);
   }
 }
 
