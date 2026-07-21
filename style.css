@@ -441,31 +441,33 @@ h1 {
 
 
 
+
+
 @media (hover: none), (pointer: coarse) {
   .map-button {
-    --touch-x: 50%;
-    --touch-y: 50%;
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     transition:
-      transform 160ms ease,
-      color 160ms ease;
+      transform 150ms ease,
+      color 150ms ease;
   }
 
+  /* 리틀리 방식처럼 원점은 항상 버튼 정중앙 */
   .map-button::before {
-    left: var(--touch-x);
-    top: var(--touch-y);
+    left: 50%;
+    top: 50%;
     width: 22px;
     height: 22px;
     background:
       radial-gradient(
         circle,
-        #171717 0%,
-        #111 60%,
+        #191919 0%,
+        #111 62%,
         #050505 100%
       );
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 220ms cubic-bezier(.2,.75,.2,1);
+    transition:
+      transform 280ms cubic-bezier(.18,.74,.22,1);
   }
 
   .map-button:focus,
@@ -473,13 +475,29 @@ h1 {
     outline: none;
   }
 
-  .map-button:active {
+  /* 리틀리의 circle-fill-active와 같은 클릭 상태 */
+  .map-button.circle-fill-active {
     color: #fff;
     transform: scale(.985);
   }
 
-  .map-button:active::before {
+  .map-button.circle-fill-active::before {
     transform: translate(-50%, -50%) scale(48);
+  }
+
+  /* 앱/페이지 복귀용: 역재생 없이 즉시 흰 버튼으로 초기화 */
+  .map-button.circle-fill-reset,
+  .map-button.circle-fill-reset::before {
+    transition: none !important;
+  }
+
+  .map-button.circle-fill-reset {
+    color: var(--black) !important;
+    transform: none !important;
+  }
+
+  .map-button.circle-fill-reset::before {
+    transform: translate(-50%, -50%) scale(0) !important;
   }
 }
 
