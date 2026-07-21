@@ -63,7 +63,7 @@ img {
 }
 
 .brand-logo {
-  width: clamp(136px, 9.36vw, 180px);
+  width: clamp(143px, 9.83vw, 189px);
   height: auto;
   margin: 0 auto clamp(32px, 4.5vh, 52px);
 }
@@ -445,34 +445,35 @@ h1 {
 
 
 
+
+
 @media (hover: none), (pointer: coarse) {
   .map-button {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     transition:
-      transform 150ms ease,
-      color 150ms ease;
+      transform 120ms ease,
+      color 120ms ease;
   }
 
-  /* 버튼 정중앙에서 큰 원이 0 → 1로 확실하게 확대 */
+  /* 리틀리처럼 버튼 정중앙의 작은 원이 빠르게 확대 */
   .map-button::before {
     left: 50%;
     top: 50%;
-    width: 900px;
-    height: 900px;
-    aspect-ratio: auto;
+    width: 26px;
+    height: 26px;
+    aspect-ratio: 1;
     border-radius: 50%;
-    background:
-      radial-gradient(
-        circle,
-        #191919 0%,
-        #111 64%,
-        #050505 100%
-      );
+    background: radial-gradient(
+      circle,
+      #181818 0%,
+      #111 64%,
+      #050505 100%
+    );
     transform: translate(-50%, -50%) scale(0);
     transform-origin: center;
     transition:
-      transform 360ms cubic-bezier(.18,.72,.18,1);
+      transform 180ms cubic-bezier(.2,.72,.2,1);
     will-change: transform;
   }
 
@@ -487,10 +488,10 @@ h1 {
   }
 
   .map-button.circle-fill-active::before {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%) scale(38);
   }
 
-  /* 복귀 시 역방향 축소 없이 즉시 원상복구 */
+  /* 복귀할 때 축소 애니메이션 없이 즉시 초기화 */
   .map-button.circle-fill-reset,
   .map-button.circle-fill-reset::before {
     transition: none !important;

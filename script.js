@@ -1,55 +1,67 @@
 (() => {
   const buttons = [...document.querySelectorAll(".map-button")];
-  let navigationTimer = null;
+  const timers = new WeakMap();
 
-  const resetButtonsImmediately = () => {
-    if (navigationTimer) {
-      window.clearTimeout(navigationTimer);
-      navigationTimer = null;
+  const resetButtonImmediately = (button) => {
+    const timer = timers.get(button);
+    if (timer) {
+      window.clearTimeout(timer);
+      timers.delete(button);
     }
 
+    button.classList.add("circle-fill-reset");
+    button.classList.remove("circle-fill-active");
+
+    // Safari에서도 역방향 축소 없이 즉시 원래 상태로 고정
+    void button.offsetWidth;
+    button.classList.remove("circle-fill-reset");
+  };
+
+  const resetAllButtons = () => {
     const active = document.activeElement;
     if (active instanceof HTMLElement) active.blur();
 
-    buttons.forEach((button) => {
-      button.classList.add("circle-fill-reset");
-      button.classList.remove("circle-fill-active");
-
-      // 스타일을 즉시 확정해 복귀 시 축소 애니메이션이 나오지 않게 함.
-      void button.offsetWidth;
-      button.classList.remove("circle-fill-reset");
-    });
+    buttons.forEach(resetButtonImmediately);
   };
 
   buttons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const href = button.getAttribute("href");
-      if (!href) return;
+    const activate = () => {
+      resetAllButtons();
 
-      event.preventDefault();
-      resetButtonsImmediately();
-
-      // 초기 scale(0)을 실제 화면에 먼저 그린 뒤 scale(1) 적용.
+      // 초기 scale(0)을 먼저 그린 뒤 중앙 원 확대 시작
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          button.classList.add("circle-fill-active");
-
-          navigationTimer = window.setTimeout(() => {
-            navigationTimer = null;
-            window.location.assign(href);
-          }, 390);
-        });
+        button.classList.add("circle-fill-active");
       });
-    });
+
+      // 링크 이동을 방해하지 않으면서 화면에 남아 있을 때만 자연스럽게 해제
+      const timer = window.setTimeout(() => {
+        resetButtonImmediately(button);
+      }, 260);
+
+      timers.set(button, timer);
+    };
+
+    button.addEventListener("touchstart", activate, { passive: true });
+    button.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "mouse") activate();
+    }, { passive: true });
+
+    button.addEventListener("touchcancel", () => {
+      resetButtonImmediately(button);
+    }, { passive: true });
+
+    button.addEventListener("pointercancel", () => {
+      resetButtonImmediately(button);
+    }, { passive: true });
   });
 
-  // 앱/외부 페이지에서 돌아오면 검정 상태 없이 즉시 흰 버튼.
-  window.addEventListener("pagehide", resetButtonsImmediately);
-  window.addEventListener("pageshow", resetButtonsImmediately);
+  // 외부 앱/페이지에서 돌아오면 즉시 흰 버튼
+  window.addEventListener("pageshow", resetAllButtons);
+  window.addEventListener("pagehide", resetAllButtons);
 
   document.addEventListener("visibilitychange", () => {
     if (document.visibilityState === "visible") {
-      resetButtonsImmediately();
+      resetAllButtons();
     }
   });
 })();
