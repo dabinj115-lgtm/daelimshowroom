@@ -439,6 +439,8 @@ h1 {
   }
 }
 
+
+
 @media (hover: none), (pointer: coarse) {
   .map-button {
     --touch-x: 50%;
@@ -447,11 +449,9 @@ h1 {
     -webkit-tap-highlight-color: transparent;
     transition:
       transform 160ms ease,
-      color 180ms ease,
-      box-shadow 180ms ease;
+      color 160ms ease;
   }
 
-  /* 기존 중앙 원 대신, 실제 터치 지점에서 퍼지는 그라데이션 */
   .map-button::before {
     left: var(--touch-x);
     top: var(--touch-y);
@@ -460,31 +460,25 @@ h1 {
     background:
       radial-gradient(
         circle,
-        #151515 0%,
-        #111 62%,
+        #171717 0%,
+        #111 60%,
         #050505 100%
       );
     transform: translate(-50%, -50%) scale(0);
-    transition: transform 260ms cubic-bezier(.22,.8,.26,1);
+    transition: transform 220ms cubic-bezier(.2,.75,.2,1);
   }
 
   .map-button:focus,
   .map-button:focus-visible {
-    color: var(--black);
     outline: none;
   }
 
-  .map-button:focus::before,
-  .map-button:focus-visible::before {
-    transform: translate(-50%, -50%) scale(0);
-  }
-
-  .map-button.is-pressing {
+  .map-button:active {
     color: #fff;
     transform: scale(.985);
   }
 
-  .map-button.is-pressing::before {
+  .map-button:active::before {
     transform: translate(-50%, -50%) scale(48);
   }
 }
